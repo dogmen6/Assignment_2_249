@@ -1,0 +1,145 @@
+// ------------------------------------------------------------------------ 
+// Part: 1
+// ------------------------------------------------------------------------
+
+package Airplane;
+import Drivers.FlyingObjects;
+
+
+/**
+ * This class is an extended from the abstract class flying objects.
+ * */
+
+public class Airplane extends FlyingObjects{
+
+	private String brand;
+	private double price;
+	private int horsepower;
+	
+	
+	/**
+	 * This method is the default constructor
+	 * */
+	public Airplane () {
+		brand = null;
+		price = 0.0;
+		horsepower = 0;
+	}
+	
+	/**
+	 * This is the parameterized constructor which contains
+	 * @param brand which is the brand of the airplane
+	 * @param price which is the price of the airplane
+	 * @param horsepower which is the horsepower of the airplane
+	 * */
+	public Airplane ( String brand, double price, int horsepower) {
+		this.brand = brand;
+		this.price = price;
+		this.horsepower = horsepower;
+	}
+	
+	/**
+	 * This is a copy constructor of the airplane class.
+	 * Its purpose is to create a copy of the brand, the price and the horsepower 
+	 * of the flying object.
+	 * @param copy = copy of the Airplane class
+	 * */
+	public Airplane (Airplane copy) {
+		brand = copy.brand;
+		price = copy.price;
+		horsepower = copy.horsepower;
+	}
+	
+	
+	/**
+	 * This method is to get the brand of the airplane
+	 * @return brand = the brand of the airplane
+	 * */
+	public String getBrand() {
+		return brand;
+	}
+
+	
+	/**
+	 * This method is to set the brand of the airplane, meaning it takes the brand
+	 * and assigns it to the appropriate attribute
+	 * @param brand = brand of the airplane
+	 * */
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+	
+	/**
+	 * This method is to get the price of the airplane
+	 * @return price = price of the airplane
+	 * */
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * This method is to set the price of the airplane, meaning it takes the price
+	 * and assigns it to the appropriate attribute
+	 * @param price = price of the airplane
+	 * */
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	/**
+	 * This method is to get the horsepower of the airplane
+	 * @return horsepower = horsepower of the airplane 
+	 * */
+	public int getHorsepower() {
+		return horsepower;
+	}
+	
+	/**
+	 * This method is to set the horsepower of the airplane, meaning it takes the horsepower
+	 * and assigns it to the appropriate attribute
+	 * @param horsepower = horsepower of the airplane
+	 * */
+	public void setHorsepower(int horsepower) {
+		this.horsepower = horsepower;
+	}
+
+	public String toString() {
+		return "This " + this.getClass().getSimpleName() + " is manufactured by " + this.brand + ". It has a horsepower of " + 
+				this.horsepower + " and costs $" + this.price + ".";
+	}
+
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		
+		if (obj == null)
+			return false;
+		
+		if (getClass() != obj.getClass())
+			return false;
+		
+		Airplane other = (Airplane) obj;
+		
+		if (brand == null) {
+			if (other.brand != null)
+				return false;
+		} 
+		
+		else if (!brand.equals(other.brand))
+			return false;
+		
+		if (horsepower != other.horsepower)
+			return false;
+		
+		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+	
+	
+}
