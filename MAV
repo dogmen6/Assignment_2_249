@@ -1,0 +1,111 @@
+// ------------------------------------------------------------------------ 
+// Part: 1
+// ------------------------------------------------------------------------
+
+package agri_mav;
+import uav.UAV;
+
+
+
+/**
+ * This class is for the MAV which is a UAV, also known as unmanned aerial vehicle.
+ * Micro Air Vehicle is a miniature UAV that has a size restriction. More specifically, 
+ * this class is extended from the UAV class.
+ *
+ * */
+
+public class MAV extends UAV{
+
+	String model;
+	double size;
+
+	/**
+	 * This method is to get the model of the MAV
+	 * @return the model of this UAV object
+	 * */
+	
+	public String getModel() {
+		return model;
+	}
+	
+	/**
+	 * This method takes the model and assigns it to the appropriate attribute
+	 * @param model which sets the model of this flying object
+	 * */
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
+	/**
+	 * This method is to get the model of the MAV
+	 * @return the size of this UAV object
+	 * */
+
+	public double getSize() {
+		return size;
+	}
+
+	/**
+	 * This method takes the size of the object and assigns it to the appropriate attribute
+	 * @param size which sets the size of this flying object
+	 * */
+	
+	public void setSize(double size) {
+		this.size = size;
+	}
+	
+	/**
+	 * This method is the default constructor which contains the super method from the UAV class
+	 * */
+
+	public MAV() {
+		super();
+	}
+	
+	/**
+	 * This method is the parameterized constructor containing the super method which calls 
+	 * attributes from the UAV class. It also contains:
+	 * @param model which is the model of the flying object
+	 * @param size which is the size of the object
+	 * @param weight = weight of the flying object
+	 * @param price = price of the flying object
+	 * */
+	
+	public MAV(double weight, double price, String model, double size) {
+		super(weight,price);
+		this.model=model;
+		this.size=size;
+	}
+	
+	/**
+	 * This is the copy constructor for the MAV which gets a copy from the UAV class
+	 * through the use of super. It also makes a copy for:
+	 * @param copy = copy for the MAV class
+	 * */
+	
+	public MAV(MAV copy) {
+		super(copy);
+		model=copy.model;
+		size = copy.size;
+		
+	}
+	
+	public String toString() {
+		return super.toString() + "This MAV model is " + model + " and it has a size of " + size + ".";
+	}
+	
+	public boolean equals(Object obj) {
+		if(obj == null )
+			return false;
+		if(getClass() != obj.getClass())
+			return false;
+		final MAV another = (MAV) obj;
+		if(super.getPrice()==another.getPrice() && super.getWeight()==another.getWeight() && this.model==another.model && this.size==another.size)
+			return true;
+		else
+			return false;
+		
+		
+	}
+} 
