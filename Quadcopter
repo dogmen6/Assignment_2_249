@@ -1,0 +1,99 @@
+// ------------------------------------------------------------------------ 
+// Part: 1
+// ------------------------------------------------------------------------
+
+package Helicopter_Quadcopter;
+
+
+/**
+ * This class is for quadcopters which is extended from the Airplane class because a 
+ * quadcopter is an airplane. It has tone additional attribute: the maximum flying speed.
+ *
+ * */
+
+public class Quadcopter extends Helicopter{
+	
+	private int max_speed;
+	
+	/**
+	 * This method is the default constructor which contains
+	 * */
+		public Quadcopter () {
+			super();
+			this.max_speed = 0;
+		}
+		
+		/**
+		 * This method is the parameterized constructor which contains
+		 * @param brand which is the brand of the airplane
+		 * @param price which is the price of the airplane
+		 * @param horsepower which is the horsepower of the airplane
+		 * @param nbOfCylinders = the number of cylinders 
+		 * @param creation_year = the year of production 
+		 * @param passenger_capacity = the passenger capacity 
+		 * It also called the super method in order to get the attributes from the airplane class
+		 * */
+		public Quadcopter (String brand, double price, int horsepower, int nbOfCylinders, int creation_year, int passenger_capacity, int max_speed) {
+			super(brand, price, horsepower, nbOfCylinders, creation_year, passenger_capacity);
+			this.max_speed = max_speed;
+		}
+		
+		/**
+		 * This is a copy constructor of the quadcopter class.
+		 * Its purpose is to reach the copy of the atrributes from the airplane class through the 
+		 * use of super and create a copy of the maximum flying speed.
+		 * @param copy = copy of the quadcopter class
+		 * */
+		public Quadcopter (Quadcopter copy) {
+			super(copy);
+			max_speed = copy.max_speed;
+		}
+
+		
+		/**
+		 * This method is to get the maximum flying speed of the quadcopter
+		 * @return max_speed = the maximum flying speed
+		 * */
+		public int getMax_speed() {
+			return max_speed;
+		}
+
+		
+		/**
+		 * This method is to set the the maximum flying speed, meaning it takes the speed
+		 * and assigns it to the appropriate attribute
+		 * @param max_speed = the maximum flying speed
+		 * */
+		public void setMax_speed(int max_speed) {
+			this.max_speed = max_speed;
+		}
+
+		@Override
+		public String toString() {
+			return super.toString() + " Also, the maximum flying speed of this Quadcopter is " + this.max_speed + "mph.";
+		}
+
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			
+			if (!super.equals(obj))
+				return false;
+			
+			if (getClass() != obj.getClass())
+				return false;
+			
+			Quadcopter other = (Quadcopter) obj;
+			
+			if (max_speed != other.max_speed)
+				return false;
+			
+			
+			return super.equals(obj);
+		}
+		
+	
+
+}
