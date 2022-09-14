@@ -1,0 +1,151 @@
+// ------------------------------------------------------------------------ 
+// Part: 1
+// ------------------------------------------------------------------------
+
+package Helicopter_Quadcopter;
+import Airplane.Airplane;
+
+
+
+/**
+ * This class is for helicopters which is extended from the Airplane class because a 
+ * helicopter is an airplane. It has three additional attributes: the number of cylinders,
+ * the year of production and the passenger capacity.
+ *
+ * */
+
+public class Helicopter extends Airplane{
+	
+	private int nbOfCylinders;
+	private int creation_year;
+	private int passenger_capacity;
+	
+	
+	/**
+	 * This method is the default constructor which contains
+	 * */
+	public Helicopter () {
+		super();
+		nbOfCylinders = 0;
+		creation_year = 0;
+		passenger_capacity = 0;
+	}
+	
+	/**
+	 * This method is the parameterized constructor which contains
+	 * @param brand which is the brand of the airplane
+	 * @param price which is the price of the airplane
+	 * @param horsepower which is the horsepower of the airplane
+	 * @param nbOfCylinders = the number of cylinders 
+	 * @param creation_year = the year of production 
+	 * @param passenger_capacity = the passenger capacity 
+	 * It aslso called the super method in order to get the attributes from the airplane class
+	 * */
+	public Helicopter (String brand, double price, int horsepower, int nbOfCylinders, int creation_year, int passenger_capacity) {
+		super(brand, price, horsepower);
+		this.nbOfCylinders = nbOfCylinders;
+		this.creation_year = creation_year;
+		this.passenger_capacity = passenger_capacity;
+	}
+	
+	/**
+	 * This is a copy constructor of the helicopter class.
+	 * Its purpose is to reach the copy of the atrributes from the airplane class through the 
+	 * use of super and create a copy of the number of cylinders, the year of production and
+	 * the passenger capacity of the flying object.
+	 * @param copy = copy of the helicopter class 
+	 * */
+	public Helicopter (Helicopter copy) {
+		super(copy);
+		nbOfCylinders = copy.nbOfCylinders;
+		creation_year = copy.creation_year;
+		passenger_capacity = copy.passenger_capacity;
+	}
+
+	/**
+	 * This method is to get the number of cylinders in the helicopter
+	 * @return nbOfCylinders = the number of cylinders
+	 * */
+	public int getNbOfCylinders() {
+		return nbOfCylinders;
+	}
+
+	/**
+	 * This method is to set the the number of cylinders, meaning it takes the number
+	 * and assigns it to the appropriate attribute
+	 * @param nbOfCylinders = the number of cylinders
+	 * */
+	public void setNbOfCylinders(int nbOfCylinders) {
+		this.nbOfCylinders = nbOfCylinders;
+	}
+	
+	/**
+	 * This method is to get the year of production in the helicopter
+	 * @return creation_year = the year of production
+	 * */
+	public int getCreation_year() {
+		return creation_year;
+	}
+
+	/**
+	 * This method is to set the the year of production, meaning it takes the year
+	 * and assigns it to the appropriate attribute
+	 * @param creation_year = the year of production
+	 * */
+	public void setCreation_year(int creation_year) {
+		this.creation_year = creation_year;
+	}
+	
+	/**
+	 * This method is to get the passenger capcity in the helicopter
+	 * @return passenger_capacity = the passenger capacity 
+	 * */
+	public int getPassenger_capacity() {
+		return passenger_capacity;
+	}
+
+	/**
+	 * This method is to set the the passenger capacity, meaning it takes the capacity
+	 * and assigns it to the appropriate attribute
+	 * @param passenger_capacity = the passenger capacity
+	 * */
+	public void setPassenger_capacity(int passenger_capacity) {
+		this.passenger_capacity = passenger_capacity;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + " Created in " + this.creation_year + ", this " + this.getClass().getSimpleName() + " has " + this.nbOfCylinders 
+						+ " number of cylinders and carries a passenger capacity of " + this.passenger_capacity + ".";
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		if (this == obj)
+			return true;
+		
+		if (!super.equals(obj))
+			return false;
+		
+		if (getClass() != obj.getClass())
+			return false;
+		
+		Helicopter other = (Helicopter) obj;
+		
+		if (creation_year != other.creation_year)
+			return false;
+		
+		if (nbOfCylinders != other.nbOfCylinders)
+			return false;
+		
+		if (passenger_capacity != other.passenger_capacity)
+			return false;
+		
+		return super.equals(obj);
+		
+	}
+
+
+}
