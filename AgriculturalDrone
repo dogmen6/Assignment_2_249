@@ -1,0 +1,115 @@
+// ------------------------------------------------------------------------ 
+// Part: 1
+// ------------------------------------------------------------------------
+
+package agri_mav;
+import uav.UAV;
+
+
+/**
+ * This class is for the Agricultural Drone which is a UAV, also known as unmanned aerial vehicle.
+ * Agricultural drones are used for crop production. More specifically, this class is extended from the
+ * UAV class.
+ * */
+
+public class AgriculturalDrone extends UAV{
+
+	private String brand;
+	private int carry_capacity;
+	
+	/**
+	 * This method is to get the brand of the agricultural drone.
+	 * @return the brand of the UAV
+	 * */
+	
+	public String getBrand() {
+		return brand;
+	}
+	
+	/**
+	 * This method takes the brand and assigns it to the appropriate attribute
+	 * @param brand which is the brand of the flying object
+	 * */
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+	
+	/**
+	 * This method is to get the carry capacity
+	 * @return the carry capacity of the UAV
+	 * */
+
+	public int getCarry_capacity() {
+		return carry_capacity;
+	}
+	
+	/**
+	 * This method takes the carry capacity and assigns it to the appropriate attribute
+	 * @param carry_capacity which is the carry capacity of the object
+	 * */
+
+	public void setCarry_capacity(int carry_capacity) {
+		this.carry_capacity = carry_capacity;
+	}
+
+	/**
+	 * This method is the default constructor which contains the super method from the UAV class
+	 * */
+	
+	public AgriculturalDrone(){
+		super();
+	}
+	
+	
+	/**
+	 * This method is the parameterized constructor containing the super method which calls 
+	 * attributes from the UAV class. It also contains:
+	 * @param weight = weight of the flying object
+	 * @param price = price of the flying object
+	 * @param brand which is the brand of the flying object
+	 * @param carry_capacity which is the carry capacity of the object
+	 * */
+	
+	public AgriculturalDrone(double weight, double price, String brand, int carry_capacity){
+		
+		super(weight,price);
+		this.brand=brand;
+		this.carry_capacity=carry_capacity;
+		
+	}
+	
+	/**
+	 * This is the copy constructor for the agricultural drone which gets a copy from the UAV class
+	 * through the use of super. It also makes a copy for:
+	 * @param copy = copy of the agricultural drone class
+	 * */
+	
+	public AgriculturalDrone(AgriculturalDrone copy){
+	
+		super(copy);
+		brand=copy.brand;
+		carry_capacity=copy.carry_capacity;
+		
+	}
+	
+	
+	public String toString() {
+		return super.toString() + "This Agricultural Drone's brand is " + brand + " and it carries a capacity of " + carry_capacity + ".";
+	}
+	
+	public boolean equals(Object obj) {
+		if(obj == null )
+			return false;
+		if(getClass() != obj.getClass())
+			return false;
+		final AgriculturalDrone another = (AgriculturalDrone) obj;
+		if(super.getPrice()==another.getPrice() && super.getWeight()==another.getWeight() && this.brand==another.brand && this.carry_capacity==another.carry_capacity)
+			return true;
+		else
+			return false;
+		
+		
+	}
+	
+}
