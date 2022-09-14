@@ -1,0 +1,105 @@
+// ------------------------------------------------------------------------ 
+// Part: 2
+// ------------------------------------------------------------------------
+
+package Drivers;
+
+//import all 7 classes
+import Helicopter_Quadcopter.Helicopter;
+import Helicopter_Quadcopter.Quadcopter;
+import agri_mav.AgriculturalDrone;
+import agri_mav.MAV;
+import Airplane.Airplane;
+import Multirotor.Multirotor;
+import uav.UAV;
+
+/** 
+ * General information:
+ * This is the driver class for Part 2 of the assignment. In general, this program creates one
+ * array of different flying objects such as airplanes, helicopter, quadcopter, multirotor, UAV,
+ * agricultural drones and MAV. 
+ * */
+
+public class Driver2 {
+	
+	//Method that creates a copy of an array passed as input
+	public static void copyFlyingObjects(FlyingObjects[] arrayA) {
+		
+		FlyingObjects[] arrayB = new FlyingObjects[arrayA.length];
+		
+		for(int i=0 ; i<arrayA.length ; i++) {
+			arrayB[i] = new FlyingObjects (arrayA[i]);
+			System.out.println(arrayB[i]);
+		}
+		
+	}
+	/**
+	 * The main method is where the flying objects are created
+	 * @param args = command-line of the arguments as an array
+	 * */
+	public static void main(String[] args) {
+		
+		//Create 15 different objects from all classes with parameters
+		Airplane airplane1 = new Airplane("Boeing 747", 418400000, 14984 );
+		Airplane airplane2 = new Airplane("Airbus A320", 101000000, 16000 );
+		Airplane airplane3 = new Airplane("F-15 Eagle", 87700000, 96000 );
+		Airplane airplane4 = new Airplane(airplane3);
+		
+		Helicopter helicopter1 = new Helicopter("Airbus EC130", 1860000, 847, 4, 2007, 6);
+		Helicopter helicopter2 = new Helicopter("Airbus NH90", 45000000, 2417, 6, 2020, 20 );
+		
+		Quadcopter quadcopter1 = new Quadcopter("DJI Air", 120000, 300, 4, 2018, 179, 345);
+		Quadcopter quadcopter2 = new Quadcopter("OnyxStar", 100000, 280, 4, 2021, 135, 543);
+		
+		Multirotor multirotor1 = new Multirotor("Volocopter VC1", 45000,  380, 6, 2017, 0, 8);
+		Multirotor multirotor2 = new Multirotor("Tarot X8", 65000, 430, 6, 2018, 0, 8);
+		
+		UAV uav1 = new UAV(100,2000);
+		UAV uav2 = new UAV(200,4000);
+		
+		AgriculturalDrone agriculturaldrone1 = new AgriculturalDrone(500,4539,"AAA",2323);
+		AgriculturalDrone agriculturaldrone2 = new AgriculturalDrone(394,4534,"BBB",3423);
+		
+		MAV mav1 = new MAV(942,342,"CCC",3433);
+		MAV mav2 = new MAV(543,454,"DDD",7987);
+		
+		//create array of objects
+		
+		FlyingObjects [] FlyingObj = new FlyingObjects [16];
+		
+		FlyingObj[0] = airplane1;
+		FlyingObj[1] = airplane2;
+		FlyingObj[2] = airplane3;
+		FlyingObj[3] = airplane4;
+		FlyingObj[4] = helicopter1;
+		FlyingObj[5] = helicopter2;
+		FlyingObj[6] = quadcopter1;
+		FlyingObj[7] = quadcopter2;
+		FlyingObj[8] = multirotor1;
+		FlyingObj[9] = multirotor2;
+		FlyingObj[10] = uav1;
+		FlyingObj[11] = uav2;
+		FlyingObj[12] = agriculturaldrone1;
+		FlyingObj[13] = agriculturaldrone2;
+		FlyingObj[14] = mav1;
+		FlyingObj[15] = mav2;
+		
+		// Display old array
+		System.out.println("Old array : \n");
+		for(int i = 0 ; i<FlyingObj.length ; i++) {
+			System.out.println(FlyingObj[i]);
+		}
+		
+		//Call the method copyFlyingObjects to create a copy of the FlyingObj array
+		System.out.println("\nNew array : \n");
+		copyFlyingObjects(FlyingObj);
+		
+		//Thank you message
+		System.out.println();
+		System.out.println("	************************************");
+		System.out.println("	* THANK YOU FOR USING THIS PROGRAM *");
+		System.out.println("	************************************");
+		
+	}
+
+}
