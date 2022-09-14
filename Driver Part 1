@@ -1,0 +1,178 @@
+package Drivers;
+//Import all classes from different packages
+import agri_mav.AgriculturalDrone;
+import agri_mav.MAV;
+import uav.UAV;
+import Airplane.Airplane;
+import Helicopter_Quadcopter.Helicopter;
+import Helicopter_Quadcopter.Quadcopter;
+import Multirotor.Multirotor;
+
+
+/* * General information:
+ * This is the driver class for Part 1 of the assignment. In general, this program creates two
+ * arrays of different flying objects such as airplanes, helicopter, quadcopter, multirotor, UAV,
+ * agricultural drones and MAV.
+ *
+ * */
+ 
+public class Driver1 {
+	
+/**
+ * This static method finds both the least expensive and the most expensive UAV objects in the arrays
+ * created. The method finds the objects and then display its details. If none are found, a 
+ * output is printed to that effect. If only one object is found then it is considered are the least
+ * and most expensive object.
+ * @param array_uav = array of the flying objects containing UAVs
+ * */
+
+public static void findLeastAndMostExpensiveUAV(FlyingObjects[] array_uav) {
+	
+	
+	FlyingObjects smallest = null;
+	FlyingObjects biggest = null;
+	for(int i = 0 ; i < array_uav.length ; i++) {
+		if(array_uav[i] instanceof UAV) {
+			if(biggest == null) {
+				smallest = array_uav[i];
+				biggest = array_uav[i];
+			} else if(array_uav[i].getPrice() > biggest.getPrice()) {
+				biggest = array_uav[i];
+			} else if(array_uav[i].getPrice() < smallest.getPrice()) {
+				smallest = array_uav[i];
+			}
+		}
+	}
+	
+	if(biggest != null) {
+		System.out.println("Most expensive UAV : " + biggest);
+		System.out.println("Less expensive UAV : " + smallest);
+	}
+	
+
+	
+	else {
+		System.out.println("No UAV found");
+	}
+	
+	
+}
+/**
+ * The main method is where the flying objects are created
+ * @param args = command-line of the arguments as an array
+ * */
+	public static void main(String[] args) {
+		
+
+		//Create 15 different objects from all classes with parameters
+		Airplane airplane1 = new Airplane("Boeing 747", 418400000, 14984 );
+		Airplane airplane2 = new Airplane("Airbus A320", 101000000, 16000 );
+		Airplane airplane3 = new Airplane("F-15 Eagle", 87700000, 96000 );
+		Airplane airplane4 = new Airplane(airplane3);
+		
+		Helicopter helicopter1 = new Helicopter("Airbus EC130", 1860000, 847, 4, 2007, 6);
+		Helicopter helicopter2 = new Helicopter("Airbus NH90", 45000000, 2417, 6, 2020, 20 );
+		
+		Quadcopter quadcopter1 = new Quadcopter("DJI Air", 120000, 300, 4, 2018, 179, 345);
+		Quadcopter quadcopter2 = new Quadcopter("OnyxStar", 100000, 280, 4, 2021, 135, 543);
+		
+		Multirotor multirotor1 = new Multirotor("Volocopter VC1", 45000,  380, 6, 2017, 0, 8);
+		Multirotor multirotor2 = new Multirotor("Tarot X8", 65000, 430, 6, 2018, 0, 8);
+		
+		UAV uav1 = new UAV(100,2000);
+		UAV uav2 = new UAV(200,4000);
+		
+		AgriculturalDrone agriculturaldrone1 = new AgriculturalDrone(500,4539,"AAA",2323);
+		AgriculturalDrone agriculturaldrone2 = new AgriculturalDrone(394,4534,"BBB",3423);
+		
+		MAV mav1 = new MAV(942,342,"CCC",3433);
+		MAV mav2 = new MAV(543,454,"DDD",7987);
+		
+		//create array of objects
+		
+		FlyingObjects[] FlyingObj = new FlyingObjects [16];
+		
+		FlyingObj[0] = airplane1;
+		FlyingObj[1] = airplane2;
+		FlyingObj[2] = airplane3;
+		FlyingObj[3] = airplane4;
+		FlyingObj[4] = helicopter1;
+		FlyingObj[5] = helicopter2;
+		FlyingObj[6] = quadcopter1;
+		FlyingObj[7] = quadcopter2;
+		FlyingObj[8] = multirotor1;
+		FlyingObj[9] = multirotor2;
+		FlyingObj[10] = uav1;
+		FlyingObj[11] = uav2;
+		FlyingObj[12] = agriculturaldrone1;
+		FlyingObj[13] = agriculturaldrone2;
+		FlyingObj[14] = mav1;
+		FlyingObj[15] = mav2;
+		
+		//print messages for all created objects
+		
+		System.out.println(airplane1);
+		System.out.println(airplane2);
+		System.out.println(airplane3);
+		System.out.println(airplane4 + "\n");
+		
+		System.out.println(helicopter1);
+		System.out.println(helicopter2 + "\n");
+		
+		System.out.println(quadcopter1);
+		System.out.println(quadcopter2 + "\n");
+		
+		System.out.println(multirotor1);
+		System.out.println(multirotor2 + "\n");
+	
+		System.out.println(uav1);
+		System.out.println(uav2 + "\n");
+		
+		System.out.println(agriculturaldrone1);
+		System.out.println(agriculturaldrone2 + "\n");
+		
+		System.out.println(mav1);
+		System.out.println(mav2 + "\n");
+		
+		// Test equality of created objects
+		
+		System.out.println("Is airplane1 equal to helicopter1 : " + airplane1.equals(helicopter1));
+		System.out.println("Is airplane2 equal to airplane3 : " + airplane2.equals(airplane3));
+		System.out.println("Is airplane3 equal to airplane4 : " + airplane3.equals(airplane4));
+		System.out.println("Is MAV1 equal to MAV2 : " + mav1.equals(mav2));
+		
+		//Declare and initialize array if objects from all flying classes except drones
+		FlyingObjects[] array2 = new FlyingObjects[16];
+		
+		array2[0]=new Airplane("Boeing A", 786475867, 76487);
+		array2[1]=new Airplane("Boeing B", 465400000, 86784);
+		array2[2]=new Airplane("Boeing C", 983400000, 19084);
+		array2[3]=new Airplane("Boeing D", 866800000, 96347);
+		array2[4]=new Helicopter("Airbus A", 1110000, 888, 4, 2345, 4);
+		array2[5]=new Helicopter("Airbus B", 2220000, 500, 5, 2000, 5);
+		array2[6]=new Helicopter("Airbus C", 3330000, 600, 6, 3000, 6);
+		array2[7]=new Helicopter("Airbus D", 4440000, 707, 3, 4000, 7);
+		array2[8]=new Quadcopter("DJI A", 100000, 300, 4, 2017, 180, 345);
+		array2[9]=new Quadcopter("DJI B", 110000, 400, 5, 2018, 181, 765);
+		array2[10]=new Quadcopter("DJI C", 120000, 500, 6, 2019, 183, 325);
+		array2[11]=new Quadcopter("DJI D", 130000, 600, 7, 2020, 190, 120);
+		array2[12]=new Multirotor("Tarot A", 50000, 400, 6, 2017, 0, 8);
+		array2[13]=new Multirotor("Tarot B", 60000, 530, 7, 2018, 0, 8);
+		array2[14]=new Multirotor("Tarot C", 70000, 630, 8, 2019, 0, 8);
+		array2[15]=new Multirotor("Tarot D", 80000, 730, 9, 2012, 0, 8);
+		
+		System.out.println();
+		System.out.println("Array 1 : ");
+		findLeastAndMostExpensiveUAV(FlyingObj);
+		System.out.println("Array 2 : ");
+		findLeastAndMostExpensiveUAV(array2);
+		
+		//Thank you message
+		System.out.println();
+		System.out.println("	************************************");
+		System.out.println("	* THANK YOU FOR USING THIS PROGRAM *");
+		System.out.println("	************************************");
+		
+	}
+
+}
