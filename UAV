@@ -1,0 +1,102 @@
+// ------------------------------------------------------------------------ 
+// Part: 1
+// ------------------------------------------------------------------------
+
+package uav;
+import Drivers.FlyingObjects;
+import uav.UAV;
+
+
+
+/**
+ * This is the UAV class which is for all drones and unmanned aerial vehicle.
+ * It has two main attributes: the weight and the price.
+ *
+ * */
+
+public class UAV extends FlyingObjects{
+
+	private double weight;
+	private double price;
+	
+	
+	/**
+	 * This method is to get the weight of the UAV
+	 * @return weight = weight of the flying object
+	 * */
+	public double getWeight() {
+		return weight;
+	}
+
+	/**
+	 * This method is to set the weight, meaning it takes the weight
+	 * and assigns it to the appropriate attribute
+	 * @param weight = weight of the flying object
+	 * */
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	/**
+	 * This method is to get the price of the UAV
+	 * @return price = price of the UAV
+	 * */
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * This method is to set the price, meaning it takes the price
+	 * and assigns it to the appropriate attribute
+	 * @param price = price of the flying object
+	 * */
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	
+	/**
+	 * This method is the default constructor which contains
+	 * */
+	public UAV() {
+		
+	}
+	
+	/**
+	 * This method is the parameterized constructor which contains
+	 * @param weight = weight of the flying object
+	 * @param price = price of the flying object
+	 * */
+	public UAV(double weight, double price) {
+		
+		this.weight=weight;
+		this.price=price;
+	}
+	
+	/**
+	 * This is a copy constructor of the UAV class.
+	 * @param copy = the copy of the UAV class
+	 * */
+	public UAV(UAV copy) {
+		weight=copy.weight;
+		price=copy.price;
+	}
+	
+	public String toString() {
+		return "This " + this.getClass().getSimpleName() + " weights " + weight + " Kg and costs " + price + "$.";
+	}
+	
+	public boolean equals(Object obj) {
+		if(obj == null )
+			return false;
+		if(getClass() != obj.getClass())
+			return false;
+		final UAV another = (UAV) obj;
+		if(this.price==another.price && this.weight==another.weight)
+			return true;
+		else
+			return false;
+		
+		
+	}
+}
