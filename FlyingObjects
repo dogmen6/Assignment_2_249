@@ -1,0 +1,53 @@
+// ------------------------------------------------------------------------ 
+// Part: 1
+// ------------------------------------------------------------------------
+
+package Drivers;
+
+
+/**
+ * This class is an abstract parent class called Flying Objects which has Airplane and
+ * UAV as children. 
+ * 
+ * */
+
+public class FlyingObjects {
+	
+private double price;
+
+/**
+ * This method is the default constructor
+ * */
+	public FlyingObjects () {
+	
+	}
+	
+	/**
+	 * This method is the copy constructor
+	 * */
+	public FlyingObjects(FlyingObjects flyingobj) {
+		
+	}
+	
+	/**
+	 * These methods are the getter and setter
+	 * */
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	/**
+	 * This method is the toString method to print the objects' cost
+	 * */
+	@Override
+	public String toString() {
+		return "The flying object costs $" + this.price + ".";
+	}
+	
+	
+
+}
